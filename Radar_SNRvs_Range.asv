@@ -16,12 +16,12 @@ Loss = 6.0; % Radar Loss in dB
 
 %% Computation of parameters
 Bandwidth = 10*log10(1/tao);
-Lemda = 10*log10( ((3*10^8) / fo )^2);
+Lemda = 10*log10( (3*10^8) / fo );
 k = 10*log10(1.38 * 10^-23);
 Range = linspace(25e3,165e3,1000);
 R = 10*log10(Range.^4);
-Numerator = Pt + 2*G + Lemda + sigma;
+Numerator = Pt + 2*G + 2*Lemda + sigma;
 Denominator = 10*log10((4*pi)^3) + k + To + Bandwidth + Loss + R;
-SNR = Numerator - Denominator;
-plot(Range/1000,SNR,'r','linewidth',2);title('SNR vs Range Plot of Radar Equation'),xlabel('Range in Km'),ylabel('SNR in dB');
-grid on;
+SNR = Numerator ./ Denominator;
+plot(SNR,Range/1000);
+gri on;

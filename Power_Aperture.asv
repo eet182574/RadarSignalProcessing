@@ -1,0 +1,15 @@
+clc, clear all, close('all');
+
+tsc = 2.5; %scan time is 2.5 seconds
+sigma = 0.1; %radar cross section in m squared
+te = 900; %effective noise temperature in Kelvin
+snr = 15; %desired SNR in dB
+nf = 6.0; % noise figure in dB
+loss = 7.0; %radar losses in dB
+az_angle = 2; %search volume azimuth extent in degrees.
+el_angles = 2; %search volume elevation extent in degrees.
+range = linspace(20e3,250e3,1000);
+
+Tsc = 10*log10(tsc); % Convert scan time into dB
+Sigma = 10*log10(sigma); % Convert sigma into dB
+four_pi = 10*log10(4.0*pi);

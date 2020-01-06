@@ -1,0 +1,9 @@
+%% Study of frequency spectrum of composite signals
+clc, clear all, close('all');
+t = linspace(0,2,100);
+x1 = sin(2*pi*50*t);
+x2 = cos(2*pi*50.5*t);
+plot(t,x1);
+hold on;
+plot(t,x2,'r');
+plot(
